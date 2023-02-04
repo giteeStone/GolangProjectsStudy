@@ -35,7 +35,7 @@ func getNums(numchan chan int, reschan chan map[int]int) {
 		val, ok := <-numchan
 		if !ok { // 如果ok等于false，说明numchan被关闭了,且当前已经读完
 			locker.Lock()
-			flag-- // 这个是共享资源，必须要锁住
+			flag-- // 这个是共享资源，必须要锁住,剩余需要完成计算求和的数字
 			if flag == 0 {
 				close(reschan)
 			}

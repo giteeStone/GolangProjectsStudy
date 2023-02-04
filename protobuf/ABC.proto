@@ -1,0 +1,17 @@
+syntax = "proto3";
+package helloproto;
+
+
+
+
+message Student {
+    string Name = 1;
+    bool Male = 2;
+}
+
+service SayHello{
+    rpc
+}
+
+//cmd protoc --go_out=.  *.proto  
+//protoc --go-grpc_out=.   ./product.proto

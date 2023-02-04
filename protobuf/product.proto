@@ -1,0 +1,19 @@
+syntax = "proto3";
+package service;
+
+option go_package ="./service";
+
+message ProductRequest {
+   int32 Prod_id =1;
+}
+
+message ProductResponse{
+    int32 Prod_stock =1;
+
+}
+
+service ProdService{
+    rpc GetProductStock(ProductRequest) returns (ProductResponse);
+}
+//cmd protoc --go_out=.  *.proto  
+//protoc --go-grpc_out=.   ./product.proto
